@@ -37,10 +37,10 @@ public class LoginScreen extends JFrame {
                 char[] passwordChars = passwordField.getPassword();
                 String password = new String(passwordChars);
 
-                // Verifique as credenciais do usuário aqui
+                // Verifique as credenciais do usuario aqui
                 if (username.equals("admin") && password.equals("admin")) {
-                    dispose(); // Fecha a tela de login
-                    new Screen(); // Abre a tela principal
+                    dispose(); // fecha a tela de login
+                    new Screen(); // abre a tela principal
                 } else {
                     JOptionPane.showMessageDialog(LoginScreen.this, "Credenciais inválidas!", "Erro de login", JOptionPane.ERROR_MESSAGE);
                 }
