@@ -14,11 +14,12 @@ public class RegistrarScreen extends JFrame {
 
         setTitle("REGISTRAR");
 
-        setSize(300, 200);
+        setSize(250, 150);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
+        getContentPane().setBackground(new Color(84, 84, 84));
         setVisible(true);
 
         jdbcConnection = new JdbcConnection();// Inicializa a conexão JDBC
@@ -28,7 +29,7 @@ public class RegistrarScreen extends JFrame {
         addIng.setBounds(20, 20, 200, 30);
         addIng.setFont(new Font("Arial", Font.BOLD, 14));
         addIng.setForeground(new Color(237, 241, 238));
-        addIng.setBackground(new Color(9, 10, 9));
+        addIng.setBackground(new Color(224, 102, 102));
         add(addIng);
         addIng.addActionListener(this::addIngA);
 
@@ -38,7 +39,7 @@ public class RegistrarScreen extends JFrame {
         remIng.setBounds(20, 60, 200, 30);
         remIng.setFont(new Font("Arial", Font.BOLD, 14));
         remIng.setForeground(new Color(237, 241, 238));
-        remIng.setBackground(new Color(9, 10, 9));
+        remIng.setBackground(new Color(224, 102, 102));
         add(remIng);
         remIng.addActionListener(this::remIngA);
 

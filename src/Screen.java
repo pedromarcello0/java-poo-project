@@ -7,16 +7,18 @@ import java.util.Map;
 
 public class Screen extends JFrame {
     private JdbcConnection jdbcConnection;
+    private JTextArea lisIngt; // Declare lisIngt como um campo da classe
 
     public Screen() {
 
         setTitle("ESTOQUE");
 
-        setSize(350, 350);
+        setSize(550, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
+        getContentPane().setBackground(new Color(84, 84, 84));
 
         jdbcConnection = new JdbcConnection();// inicializa a conexão JDBC
 
@@ -48,13 +50,18 @@ public class Screen extends JFrame {
         atuQua.addActionListener(this::atuQuaA);
 
         ///botao listar ingredientes
-        JButton lisIng = new JButton("Listar Ingredientes");
+        JButton lisIng = new JButton("Listar");
         lisIng.setBounds(20, 140, 200, 30);
         lisIng.setFont(new Font("Arial", Font.BOLD, 14));
         lisIng.setForeground(new Color(255, 255, 255));
         lisIng.setBackground(new Color(224, 102, 102));
         add(lisIng);
         lisIng.addActionListener(this::lisIngA);
+
+        // Inicializa lisIngt
+        lisIngt = new JTextArea("Clique em Listar, para atualizar a lista");
+        lisIngt.setBounds(230, 20, 290, 360);
+        add(lisIngt);
 
         setVisible(true);
     }
@@ -134,18 +141,9 @@ public class Screen extends JFrame {
     private void lisIngA(ActionEvent actionEvent) {
         try {
             String listaIngredientes = Main.mostrarLista();
-            JTextArea textArea = new JTextArea(listaIngredientes);
-            textArea.setFont(new Font("Arial", Font.PLAIN, 14));
-
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            scrollPane.setPreferredSize(new Dimension(400, 300));
-
-            JOptionPane.showMessageDialog(null, scrollPane, "Lista de Ingredientes", JOptionPane.INFORMATION_MESSAGE);
+            lisIngt.setText(listaIngredientes); // Atualiza o conteúdo do JTextArea com a lista de ingredientes
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar ingredientes: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
-
-
-

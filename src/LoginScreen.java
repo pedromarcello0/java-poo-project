@@ -14,6 +14,7 @@ public class LoginScreen extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
+
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 2));
 
