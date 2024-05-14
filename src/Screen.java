@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Screen extends JFrame {
     private JdbcConnection jdbcConnection;
-    private JTextArea lisIngt; // Declare lisIngt como um campo da classe
+    private JTextArea lisIngt;
 
     public Screen() {
 
@@ -18,7 +18,7 @@ public class Screen extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
-        getContentPane().setBackground(new Color(84, 84, 84));
+        getContentPane().setBackground(new Color(183, 176, 176));
 
         jdbcConnection = new JdbcConnection();// inicializa a conexão JDBC
 
@@ -60,8 +60,9 @@ public class Screen extends JFrame {
 
         // Inicializa lisIngt
         lisIngt = new JTextArea("Clique em Listar, para atualizar a lista");
-        lisIngt.setBounds(230, 20, 290, 360);
-        add(lisIngt);
+        JScrollPane scrollPane = new JScrollPane(lisIngt);
+        scrollPane.setBounds(230, 20, 290, 360);
+        add(scrollPane);
 
         setVisible(true);
     }

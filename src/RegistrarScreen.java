@@ -19,7 +19,7 @@ public class RegistrarScreen extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
-        getContentPane().setBackground(new Color(84, 84, 84));
+        getContentPane().setBackground(new Color(183, 176, 176));
         setVisible(true);
 
         jdbcConnection = new JdbcConnection();// Inicializa a conexão JDBC
